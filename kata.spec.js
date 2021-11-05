@@ -23,16 +23,21 @@ describe('kata test suite', () => {
 
   it('given a names array which has more than two elements returns "Hello, name[0], name[1], and name[2].', () => {
     const result = kataGreeting.greet(['Amy', 'Brian', 'Charlotte'])
-    expect(result).toEqual('Hello, Amy, Brian and Charlotte.')
+    expect(result).toEqual('Hello, Amy, Brian, and Charlotte.')
   })
 
   it('given mixed names in upper and lower case return lowercase names first and then the uppercase ones.', () => {
     const result = kataGreeting.greet(['Amy', 'BRIAN', 'Charlotte'])
-    expect(result).toEqual('Hello, Amy, Charlotte. AND HELLO BRIAN!')
+    expect(result).toEqual('Hello, Amy and Charlotte. AND HELLO BRIAN!')
   })
 
   it('given names with comma, return them separated with and', () => {
     const result = kataGreeting.greet(['Bob', 'Charlie, Dianne'])
     expect(result).toEqual('Hello, Bob, Charlie, and Dianne.')
+  })
+
+  it('given names with comma and quotes, return them separated with and', () => {
+    const result = kataGreeting.greet(['Bob', '\"Charlie, Dianne\"'])
+    expect(result).toEqual('Hello, Bob and Charlie, Dianne.')
   })
 })
